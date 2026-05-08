@@ -9,6 +9,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "CleanOps AI",
   description: "CleanOps AI Web App",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
