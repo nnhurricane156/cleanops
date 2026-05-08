@@ -138,10 +138,6 @@ function formatMetric(value?: number | null) {
   return value.toFixed(4);
 }
 
-function formatQualityScore(value: number) {
-  return `${value.toFixed(2)}%`;
-}
-
 function translatePromotionReason(reason?: string | null) {
   if (!reason) {
     return "Chưa có";
@@ -367,10 +363,6 @@ function ReviewDialog({
                 <p className="font-medium">{item.environmentKey}</p>
               </div>
               <div>
-                <p className="text-gray-500">Điểm chất lượng</p>
-                <p className="font-medium">{formatQualityScore(item.qualityScore)}</p>
-              </div>
-              <div>
                 <p className="text-gray-500">Mã yêu cầu</p>
                 <p className="break-all font-mono text-xs">{item.requestId}</p>
               </div>
@@ -450,7 +442,6 @@ function ReviewQueue() {
                 <TableHead>Ảnh</TableHead>
                 <TableHead>Người lao động</TableHead>
                 <TableHead>Môi trường</TableHead>
-                <TableHead>Điểm</TableHead>
                 <TableHead>Ngày tạo</TableHead>
                 <TableHead className="text-right">Thao tác</TableHead>
               </TableRow>
@@ -470,7 +461,6 @@ function ReviewQueue() {
                   </TableCell>
                   <TableCell>{item.workerName || "Chưa có"}</TableCell>
                   <TableCell>{item.environmentKey}</TableCell>
-                  <TableCell>{formatQualityScore(item.qualityScore)}</TableCell>
                   <TableCell>{formatDate(item.createdAt)}</TableCell>
                   <TableCell className="text-right">
                     {canReview ? (
